@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
           _getProductsList(_listOfProducts),
           _getSpacing(AppSizeManager.s20),
           _getTextSection(StringManager.popularBrands, context),
-          _getBrands(),
+          _getBrands(_listOfProducts),
           _getSpacing(AppSizeManager.s20),
           _getBanner(context),
           _getSpacing(AppSizeManager.s20),
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
       fit: StackFit.loose,
       children: [
         CarouselSlider.builder(
-          itemCount: _carouselImages.length, 
+          itemCount: carouselImages.length, 
           itemBuilder: (context, index, realIndex) {
             final image = carouselImages[index];
             return _buildImage(image, index);
@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView.separated(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
-          itemCount: _listOfProducts.length,
+          itemCount: categories.length,
           itemBuilder: (context, index) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -311,7 +311,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _getBrands() {
+  _getBrands(List categories) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSizeManager.s10),
       child: SizedBox(
@@ -319,12 +319,12 @@ class _HomePageState extends State<HomePage> {
         child: ListView.separated(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
-          itemCount: _listOfProducts.length,
+          itemCount: categories.length,
           itemBuilder: (context, index) => SizedBox(
             height: AppSizeManager.s80,
             width: AppSizeManager.s120,
             child: Image.asset(
-              _categories[index]['image'].toString(),
+              categories[index]['image'].toString(),
               fit: BoxFit.cover,
               width: double.maxFinite,
             ),

@@ -106,15 +106,15 @@ class _HomePageState extends State<HomePage> {
         children: [
           _getCarousel(_carouselImages),
           _getSpacing(AppSizeManager.s20),
-          _getTextSection(StringManager.shopByCategory, context),
+          _getTextSection(StringManager.shopByCategory),
           _getAllCategories(_categories),
-          _getTextSection(StringManager.recommendedForYou, context),
+          _getTextSection(StringManager.recommendedForYou),
           _getProductsList(_listOfProducts),
           _getSpacing(AppSizeManager.s20),
-          _getTextSection(StringManager.popularBrands, context),
+          _getTextSection(StringManager.popularBrands),
           _getBrands(_listOfProducts),
           _getSpacing(AppSizeManager.s20),
-          _getBanner(context),
+          _getBanner(),
           _getSpacing(AppSizeManager.s20),
         ],
       ),
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _getTextSection(String title, BuildContext context) {
+  _getTextSection(String title) {
     return Padding(
       padding: const EdgeInsets.all(AppSizeManager.s10),
       child: Text(
@@ -150,7 +150,6 @@ class _HomePageState extends State<HomePage> {
           }, 
           options: CarouselOptions(
             height: AppSizeManager.s300,
-            aspectRatio: AppSizeManager.s1,
             viewportFraction: AppSizeManager.s1,
             reverse: false,
             onPageChanged: (index, reason) {
@@ -194,7 +193,7 @@ class _HomePageState extends State<HomePage> {
 
   _getAllCategories(List categories) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSizeManager.s10),
+      padding: const EdgeInsets.symmetric(horizontal: AppPaddingManager.p10),
       child: SizedBox(
         height: AppSizeManager.s130,
         child: ListView.separated(
@@ -225,7 +224,7 @@ class _HomePageState extends State<HomePage> {
 
   _getProductsList(List listOfProducts) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSizeManager.s10),
+      padding: const EdgeInsets.symmetric(horizontal: AppPaddingManager.p10),
       child: SizedBox(
         height: AppSizeManager.s260,
         child: ListView.separated(
@@ -241,13 +240,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(AppSizeManager.s10),
+              padding: const EdgeInsets.all(AppPaddingManager.p10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: AppSizeManager.s4.toInt(),
+                    flex: AppValueManager.v4,
                     child: Image.asset(
                       listOfProducts[index]['image'].toString(),
                       fit: BoxFit.cover,
@@ -256,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: AppPaddingManager.p8),
                   Expanded(
-                    flex: AppSizeManager.s4.toInt(),
+                    flex: AppValueManager.v4,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -264,7 +263,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           listOfProducts[index]['name'].toString(),
                           style: Theme.of(context).textTheme.labelMedium,
-                          maxLines: AppSizeManager.s2.toInt(),
+                          maxLines: AppValueManager.v2,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
@@ -280,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: AppPaddingManager.p8),
                   Expanded(
-                    flex: AppSizeManager.s1.toInt(),
+                    flex: AppValueManager.v1,
                     child: Container(
                       color: ColorManager.grey,
                       child: Row(
@@ -313,7 +312,7 @@ class _HomePageState extends State<HomePage> {
 
   _getBrands(List categories) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSizeManager.s10),
+      padding: const EdgeInsets.symmetric(horizontal: AppPaddingManager.p10),
       child: SizedBox(
         height: AppSizeManager.s80,
         child: ListView.separated(
@@ -336,9 +335,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _getBanner(BuildContext context) {
+  _getBanner() {
     return Padding(
-      padding: const EdgeInsets.all(AppSizeManager.s10),
+      padding: const EdgeInsets.all(AppPaddingManager.p10),
       child: SizedBox.square(
         dimension: MediaQuery.of(context).size.width,
         child: Image.asset(ImageAssetManager.categories),

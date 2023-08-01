@@ -1,6 +1,6 @@
+import 'package:culture_circle_app_task/presentation/main/auth_view/auth_view.dart';
 import 'package:culture_circle_app_task/presentation/main/home_view/home_view.dart';
 import 'package:culture_circle_app_task/presentation/main/other_views/notifications_view.dart';
-import 'package:culture_circle_app_task/presentation/main/other_views/profile_view.dart';
 import 'package:culture_circle_app_task/presentation/main/other_views/search_view.dart';
 import 'package:culture_circle_app_task/presentation/resources/colors_manager.dart';
 import 'package:culture_circle_app_task/presentation/resources/icons_manager.dart';
@@ -19,7 +19,8 @@ class _MainViewState extends State<MainView> {
     HomePage(),
     SearchView(),
     NotificationsView(),
-    ProfileView(),
+    // ProfileView(), // TODO UNCOMMENT THIS
+    AuthView(), // TODO COMMENT THIS
   ];
 
   int _currentIndex = 0;

@@ -6,6 +6,29 @@ class StringManager {
 
   static const String pageNotFound = 'Page not found!';
 
+  // AUTH VIEW
+  static const String signUp = 'Sign Up';
+  static const String logIn = 'Log In';
+  static const String signUpConditions = 'By signing up, you agree you\'ve read and accepted our Terms and Conditions. Please see our Privacy Policy for information on how we process your data.';
+  static const String logInConditions = 'By logging in, you agree to the Terms and Conditions and Privacy Policy';
+  static const String or = 'OR';
+
+  // HINT TEXTS
+  static const String firstName = 'First Name*';
+  static const String lastName = 'Last Name*';
+  static const String emailAddress = 'Email Address*';
+  static const String password = 'Password*';
+  static const String forgotPassword = 'Forgot Password?';
+  static const String passwordHelperText = 'At least 8 characters, 1 uppercase letter, 1 number & 1 symbol';
+
+  // BUTTONS
+  static const String continueWithGoogle = 'Continue With Google';
+  static const String continueWithFacebook = 'Continue With Facebook';
+  static const String continueWithTwitter = 'Continue With Twitter';
+
+  static const String moveToLogin = 'Already have an account? Log In';
+  static const String moveToSignup = 'Need and account? Sign Up';
+
   // HOME VIEW TITLES
   static const String shopByCategory = 'Shop by Category';
   static const String recommendedForYou = 'Recommended For You';

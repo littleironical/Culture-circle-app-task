@@ -1,9 +1,17 @@
 class AppPaddingManager {
+  static const double p2 = 2;
   static const double p4 = 4;
   static const double p8 = 8;
   static const double p10 = 10;
   static const double p12 = 12;
   static const double p20 = 20;
+}
+
+class AppValueManager {
+  static const int v0 = 0;
+  static const int v1 = 1;
+  static const int v2 = 2;
+  static const int v4 = 4;
 }
 
 class AppSizeManager {

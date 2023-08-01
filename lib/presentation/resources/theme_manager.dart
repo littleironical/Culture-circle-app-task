@@ -9,7 +9,7 @@ ThemeData appThemeManager() {
     // main colors of the app
     primaryColor: ColorManager.primary,
     disabledColor: ColorManager.lightGrey, // i.e., for disabled button
-    splashColor: ColorManager.primary,
+    splashColor: ColorManager.lightGrey,
 
     // appbar theme
     appBarTheme: AppBarTheme(
@@ -37,17 +37,54 @@ ThemeData appThemeManager() {
       type: BottomNavigationBarType.fixed,
     ),
 
+    // INPUT DECORATION THEME
+    inputDecorationTheme: const InputDecorationTheme(
+      labelStyle: TextStyle(
+        color: ColorManager.lightGrey,
+      ),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(
+          width: AppSizeManager.s1, 
+          color: Colors.black,
+        ),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black, 
+          width: AppSizeManager.s1,
+        ),
+      ),
+    ),
+
+    // TAB BAR THEME
+    tabBarTheme: const TabBarTheme(
+      labelColor: ColorManager.black,
+      indicatorColor: ColorManager.black,   
+    ),
+
     // elevated button theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: regularTextStyleManager(color: ColorManager.white),
-        backgroundColor: ColorManager.primary,
+        backgroundColor: ColorManager.black,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSizeManager.s10)),
+            borderRadius: BorderRadius.circular(AppSizeManager.s4)),
         elevation: AppSizeManager.s0,
       ),
     ),
 
+    // OUTLINES BUTTON THEME
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        side: const BorderSide(
+          color: ColorManager.darkGrey, 
+          width: AppSizeManager.s1,
+        ),
+        foregroundColor: ColorManager.black,
+      ),
+    ),
+
+    // TEXT BUTTON THEME
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         textStyle: regularTextStyleManager(color: ColorManager.white),
@@ -87,6 +124,10 @@ ThemeData appThemeManager() {
       displayMedium: mediumTextStyleManager(
         color: ColorManager.white,
         fontSize: FontSizeManager.s16,
+      ),
+      displaySmall: semiBoldTextStyleManager(
+        color: ColorManager.lightGrey,
+        fontSize: FontSizeManager.s14,
       ),
       labelSmall: mediumTextStyleManager(
         color: ColorManager.darkGrey,

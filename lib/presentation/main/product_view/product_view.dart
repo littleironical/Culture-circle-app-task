@@ -5,10 +5,15 @@ import 'package:culture_circle_app_task/presentation/resources/strings_manager.d
 import 'package:culture_circle_app_task/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
-class ProductView extends StatelessWidget {
+class ProductView extends StatefulWidget {
   final Map<String, String> _product;
-  ProductView(this._product, {super.key});
+  const ProductView(this._product, {super.key});
 
+  @override
+  State<ProductView> createState() => _ProductViewState();
+}
+
+class _ProductViewState extends State<ProductView> {
   final List<Map<String, String>> _listOfProducts = [
     {
       'image': ImageAssetManager.product5,
@@ -55,12 +60,11 @@ class ProductView extends StatelessWidget {
     },
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      body: _body(_product, context),
+      body: _body(widget._product),
     );
   }
 
@@ -80,11 +84,11 @@ class ProductView extends StatelessWidget {
           child: Icon(IconManager.add),
         ),
       ],
-      bottom: _bottomAppBar(context),
+      bottom: _bottomAppBar(),
     );
   }
 
-  _bottomAppBar(BuildContext context) {
+  _bottomAppBar() {
     return PreferredSize(
       preferredSize: const Size.fromHeight(AppSizeManager.s140),
       child: SizedBox(
@@ -95,12 +99,12 @@ class ProductView extends StatelessWidget {
             children: [
               Expanded(
                 flex: AppValueManager.v1,
-                child: _sizeChart(context),
+                child: _sizeChart(),
               ),
               const SizedBox(height: AppSizeManager.s10),
               Expanded(
                 flex: AppValueManager.v1,
-                child: _buttons(context),
+                child: _buttons(),
               ),
             ],
           ),
@@ -109,7 +113,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _sizeChart(context) {
+  _sizeChart() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: AppPaddingManager.p10),
       height: AppSizeManager.s40,
@@ -146,7 +150,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _buttons(BuildContext context) {
+  _buttons() {
     return Row(
       children: [
         Expanded(
@@ -156,7 +160,7 @@ class ProductView extends StatelessWidget {
             height: double.maxFinite,
             color: ColorManager.primary,
             child: _buyOrSellButton(StringManager.buyPrice,
-                StringManager.buySize, StringManager.buyORBid, context),
+                StringManager.buySize, StringManager.buyORBid),
           ),
         ),
         const Expanded(
@@ -170,7 +174,7 @@ class ProductView extends StatelessWidget {
             height: double.maxFinite,
             color: ColorManager.black,
             child: _buyOrSellButton(StringManager.sellPrice,
-                StringManager.sellSize, StringManager.sellORAsk, context),
+                StringManager.sellSize, StringManager.sellORAsk),
           ),
         ),
       ],
@@ -178,7 +182,7 @@ class ProductView extends StatelessWidget {
   }
 
   _buyOrSellButton(
-      String price, String size, String ask, BuildContext context) {
+      String price, String size, String ask) {
     return Padding(
       padding: const EdgeInsets.all(AppPaddingManager.p4),
       child: Row(
@@ -230,24 +234,24 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _body(Map product, BuildContext context) {
+  _body(Map product) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _getSpacing(AppSizeManager.s10),
-          _getTitle(product['name'].toString(), context),
-          _getProductImage(_product['image'].toString(), context),
-          _getProductStatus(context),
+          _getTitle(product['name'].toString()),
+          _getProductImage(widget._product['image'].toString()),
+          _getProductStatus(),
           _getSpacing(AppSizeManager.s10),
-          _getPricingData(StringManager.lastSaleText, StringManager.lastSalePrice, StringManager.lastSaleAnalytics, context),
+          _getPricingData(StringManager.lastSaleText, StringManager.lastSalePrice, StringManager.lastSaleAnalytics),
           _getSpacing(AppSizeManager.s10),
           _getDivider(),
-          _getExpandableSection(StringManager.stockXVerified, IconManager.verified, StringManager.stockXVerifiedText, context),
+          _getExpandableSection(StringManager.stockXVerified, IconManager.verified, StringManager.stockXVerifiedText),
           _getDivider(),
-          _getExpandableSection(StringManager.ourPromise, IconManager.trust, StringManager.ourPromiseTxet, context),
+          _getExpandableSection(StringManager.ourPromise, IconManager.trust, StringManager.ourPromiseTxet),
           _getDivider(),
-          _getRelatedProductsBanner(context),
+          _getRelatedProductsBanner(),
           _getSpacing(AppSizeManager.s10),
           _getProductsList(_listOfProducts),
           _getSpacing(AppSizeManager.s40),
@@ -270,7 +274,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _getTitle(String title, BuildContext context) {
+  _getTitle(String title) {
     return Padding(
       padding: const EdgeInsets.all(AppPaddingManager.p10),
       child: Text(
@@ -280,7 +284,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _getProductImage(String image, BuildContext context) {
+  _getProductImage(String image) {
     return Padding(
       padding: const EdgeInsets.all(AppPaddingManager.p10),
       child: SizedBox(
@@ -294,7 +298,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _getProductStatus(BuildContext context) {
+  _getProductStatus() {
     return Padding(
       padding: const EdgeInsets.all(AppPaddingManager.p10),
       child: Container(
@@ -345,7 +349,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _getPricingData(String pricingText, String price, String analytic, BuildContext context) {
+  _getPricingData(String pricingText, String price, String analytic) {
     return Padding(
       padding: const EdgeInsets.all(AppPaddingManager.p10),
       child: Row(
@@ -398,7 +402,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _getExpandableSection(String title, IconData logo, String text, BuildContext context) {
+  _getExpandableSection(String title, IconData logo, String text) {
     return ExpansionTile(
       title: Row(
         children: [
@@ -423,7 +427,7 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  _getRelatedProductsBanner(BuildContext context) {
+  _getRelatedProductsBanner() {
     return SizedBox(
       height: AppSizeManager.s40,
       child: Padding(

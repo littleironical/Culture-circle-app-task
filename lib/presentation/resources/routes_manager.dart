@@ -18,7 +18,7 @@ class RouteGenerator {
       case RouteManager.authRoute:
         return MaterialPageRoute(builder: (_) => const AuthView());
       case RouteManager.productRoute:
-        return MaterialPageRoute(builder: (_) => ProductView(const {}));
+        return MaterialPageRoute(builder: (_) => const ProductView({}));
       default:
         return unDefinedRoute();
     }

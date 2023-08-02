@@ -19,8 +19,7 @@ class _MainViewState extends State<MainView> {
     HomePage(),
     SearchView(),
     NotificationsView(),
-    // ProfileView(), // TODO UNCOMMENT THIS
-    AuthView(), // TODO COMMENT THIS
+    AuthView(), 
   ];
 
   int _currentIndex = 0;

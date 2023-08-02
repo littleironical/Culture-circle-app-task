@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 
 ThemeData appThemeManager() {
   return ThemeData(
-    // main colors of the app
+    // MAIN COLORS OF APP
     primaryColor: ColorManager.primary,
     disabledColor: ColorManager.lightGrey, // i.e., for disabled button
     splashColor: ColorManager.lightGrey,
 
-    // appbar theme
+    // APP BAR THEME
     appBarTheme: AppBarTheme(
       backgroundColor: ColorManager.white,
       centerTitle: true,
@@ -27,6 +27,7 @@ ThemeData appThemeManager() {
       ),
     ),
 
+    // BOTTOM NAVIGATION BAR THEME
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: ColorManager.white,
       elevation: AppSizeManager.s10,
@@ -62,7 +63,7 @@ ThemeData appThemeManager() {
       indicatorColor: ColorManager.black,   
     ),
 
-    // elevated button theme
+    // ELEVATED BUTTON THEME
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: regularTextStyleManager(color: ColorManager.white),
@@ -73,7 +74,7 @@ ThemeData appThemeManager() {
       ),
     ),
 
-    // OUTLINES BUTTON THEME
+    // OUTLINE BUTTON THEME
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         side: const BorderSide(
@@ -84,41 +85,38 @@ ThemeData appThemeManager() {
       ),
     ),
 
-    // TEXT BUTTON THEME
-    textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(
-        textStyle: regularTextStyleManager(color: ColorManager.white),
-        backgroundColor: ColorManager.primary,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSizeManager.s10)),
-        disabledBackgroundColor: ColorManager.white,
-      ),
+    expansionTileTheme: const ExpansionTileThemeData(
+      textColor: ColorManager.darkGrey,
+      iconColor: ColorManager.darkGrey,
+      collapsedIconColor: ColorManager.darkGrey,
     ),
 
-    // text theme
+    // TEXT THEMES
     textTheme: TextTheme(
       titleLarge: boldTextStyleManager(
         color: ColorManager.black,
         fontSize: FontSizeManager.s20,
       ),
-      titleMedium: mediumTextStyleManager(
+      titleMedium: boldTextStyleManager(
         color: ColorManager.black,
-        fontSize: FontSizeManager.s18,
+        fontSize: FontSizeManager.s20,
       ),
-      titleSmall: mediumTextStyleManager(
+      titleSmall: semiBoldTextStyleManager(
         color: ColorManager.black,
         fontSize: FontSizeManager.s14,
       ),
-      bodyLarge: boldTextStyleManager(
-        color: ColorManager.black,
+
+      // WHITE
+      bodyLarge: mediumTextStyleManager(
+        color: ColorManager.white,
         fontSize: FontSizeManager.s24,
       ),
       bodyMedium: mediumTextStyleManager(
-        color: ColorManager.black,
-        fontSize: FontSizeManager.s16,
+        color: ColorManager.white,
+        fontSize: FontSizeManager.s14,
       ),
-      bodySmall: boldTextStyleManager(
-        color: ColorManager.black,
+      bodySmall: mediumTextStyleManager(
+        color: ColorManager.white,
         fontSize: FontSizeManager.s12,
       ),
       displayMedium: mediumTextStyleManager(
@@ -140,6 +138,10 @@ ThemeData appThemeManager() {
       labelLarge: boldTextStyleManager(
         color: ColorManager.black,
         fontSize: FontSizeManager.s24,
+      ),
+      headlineSmall: semiBoldTextStyleManager(
+        color: ColorManager.primary,
+        fontSize: FontSizeManager.s14,
       ),
     ),
   );

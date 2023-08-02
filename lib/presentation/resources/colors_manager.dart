@@ -8,4 +8,5 @@ class ColorManager {
   static const Color grey = Color.fromRGBO(232, 232, 232, 1);
   static const Color white = Color(0xffffffff);
   static const Color red = Color.fromARGB(255, 255, 63, 63);
+  static const Color yellow = Color.fromARGB(255, 187, 153, 0);
 }

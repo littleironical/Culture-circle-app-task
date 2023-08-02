@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:culture_circle_app_task/presentation/main/product_view/product_view.dart';
 import 'package:culture_circle_app_task/presentation/resources/assets_manager.dart';
 import 'package:culture_circle_app_task/presentation/resources/colors_manager.dart';
 import 'package:culture_circle_app_task/presentation/resources/icons_manager.dart';
@@ -18,82 +19,96 @@ class _HomePageState extends State<HomePage> {
 
   // SAMPLE DATA
   final List<String> _carouselImages = [
-    ImageAssetManager.categories,
-    ImageAssetManager.categories,
-    ImageAssetManager.categories,
-    ImageAssetManager.categories,
+    ImageAssetManager.banner5,
+    ImageAssetManager.banner2,
+    ImageAssetManager.banner3,
+    ImageAssetManager.banner4,
   ];
 
   // SAMPLE DATA
   final List<Map<String, String>> _categories = [
     {
-      'image': ImageAssetManager.categories, 
+      'image': ImageAssetManager.category1, 
       'category_name': StringManager.categorySneakers,
     },
     {
-      'image': ImageAssetManager.categories, 
+      'image': ImageAssetManager.category2, 
       'category_name': StringManager.categoryApparel,
     },
     {
-      'image': ImageAssetManager.categories, 
+      'image': ImageAssetManager.category3, 
       'category_name': StringManager.categoryElectronics,
     },
     {
-      'image': ImageAssetManager.categories, 
+      'image': ImageAssetManager.category4, 
+      'category_name': StringManager.categoryShoes,
+    },
+    {
+      'image': ImageAssetManager.category5, 
       'category_name': StringManager.categoryTradingCards,
-    },
-    {
-      'image': ImageAssetManager.categories, 
-      'category_name': StringManager.categoryCollectibles,
-    },
-    {
-      'image': ImageAssetManager.categories, 
-      'category_name': StringManager.categoryAccessories,
     },
   ];
 
   final List<Map<String, String>> _listOfProducts = [
     {
-      'image': ImageAssetManager.categories,
+      'image': ImageAssetManager.product1,
       'name': StringManager.shoe1,
       'ask': StringManager.lowestAsk,
       'price': StringManager.price,
       'last_sale': StringManager.lastSale,
     },
     {
-      'image': ImageAssetManager.categories,
+      'image': ImageAssetManager.product2,
       'name': StringManager.shoe2,
       'ask': StringManager.lowestAsk,
       'price': StringManager.price,
       'last_sale': StringManager.lastSale,
     },
     {
-      'image': ImageAssetManager.categories,
+      'image': ImageAssetManager.product3,
       'name': StringManager.shoe3,
       'ask': StringManager.lowestAsk,
       'price': StringManager.price,
       'last_sale': StringManager.lastSale,
     },
     {
-      'image': ImageAssetManager.categories,
+      'image': ImageAssetManager.product4,
       'name': StringManager.shoe4,
       'ask': StringManager.lowestAsk,
       'price': StringManager.price,
       'last_sale': StringManager.lastSale,
     },
     {
-      'image': ImageAssetManager.categories,
+      'image': ImageAssetManager.product5,
       'name': StringManager.shoe5,
       'ask': StringManager.lowestAsk,
       'price': StringManager.price,
       'last_sale': StringManager.lastSale,
     },
     {
-      'image': ImageAssetManager.categories,
+      'image': ImageAssetManager.product6,
       'name': StringManager.shoe6,
       'ask': StringManager.lowestAsk,
       'price': StringManager.price,
       'last_sale': StringManager.lastSale,
+    },
+  ];
+
+  final List<Map<String, String>> _listOfBrands = [
+    {
+      'image': ImageAssetManager.brand1,
+    },
+    {
+      'image': ImageAssetManager.brand2,
+    },
+    {
+      'image': ImageAssetManager.brand3,
+    },
+    {
+      'image': ImageAssetManager.brand4,
+    },
+    {
+      'image': ImageAssetManager.brand5,
     },
   ];
 
@@ -112,7 +127,7 @@ class _HomePageState extends State<HomePage> {
           _getProductsList(_listOfProducts),
           _getSpacing(AppSizeManager.s20),
           _getTextSection(StringManager.popularBrands),
-          _getBrands(_listOfProducts),
+          _getBrands(_listOfBrands),
           _getSpacing(AppSizeManager.s20),
           _getBanner(),
           _getSpacing(AppSizeManager.s20),
@@ -149,7 +164,7 @@ class _HomePageState extends State<HomePage> {
             return _buildImage(image, index);
           }, 
           options: CarouselOptions(
-            height: AppSizeManager.s300,
+            height: AppSizeManager.s340,
             viewportFraction: AppSizeManager.s1,
             reverse: false,
             onPageChanged: (index, reason) {
@@ -231,75 +246,78 @@ class _HomePageState extends State<HomePage> {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: listOfProducts.length,
-          itemBuilder: (context, index) => Container(
-            width: AppSizeManager.s140,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: ColorManager.grey,
-                width: AppSizeManager.s1,
+          itemBuilder: (context, index) => GestureDetector(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProductView(listOfProducts[index]))),
+            child: Container(
+              width: AppSizeManager.s140,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: ColorManager.grey,
+                  width: AppSizeManager.s1,
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(AppPaddingManager.p10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: AppValueManager.v4,
-                    child: Image.asset(
-                      listOfProducts[index]['image'].toString(),
-                      fit: BoxFit.cover,
-                      width: double.maxFinite,
+              child: Padding(
+                padding: const EdgeInsets.all(AppPaddingManager.p10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: AppValueManager.v4,
+                      child: Image.asset(
+                        listOfProducts[index]['image'].toString(),
+                        fit: BoxFit.cover,
+                        width: double.maxFinite,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: AppPaddingManager.p8),
-                  Expanded(
-                    flex: AppValueManager.v4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          listOfProducts[index]['name'].toString(),
-                          style: Theme.of(context).textTheme.labelMedium,
-                          maxLines: AppValueManager.v2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          listOfProducts[index]['ask'].toString(),
-                          style: Theme.of(context).textTheme.labelSmall,
-                        ),
-                        Text(
-                          listOfProducts[index]['price'].toString(),
-                          style: Theme.of(context).textTheme.labelLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: AppPaddingManager.p8),
-                  Expanded(
-                    flex: AppValueManager.v1,
-                    child: Container(
-                      color: ColorManager.grey,
-                      child: Row(
+                    const SizedBox(height: AppPaddingManager.p8),
+                    Expanded(
+                      flex: AppValueManager.v4,
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(
-                            IconManager.dot,
-                            color: ColorManager.primary,
-                            size: AppSizeManager.s14,
+                          Text(
+                            listOfProducts[index]['name'].toString(),
+                            style: Theme.of(context).textTheme.labelMedium,
+                            maxLines: AppValueManager.v2,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            listOfProducts[index]['last_sale'].toString(),
-                            style: Theme.of(context).textTheme.bodySmall,
+                            listOfProducts[index]['ask'].toString(),
+                            style: Theme.of(context).textTheme.labelSmall,
+                          ),
+                          Text(
+                            listOfProducts[index]['price'].toString(),
+                            style: Theme.of(context).textTheme.labelLarge,
                           ),
                         ],
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: AppPaddingManager.p8),
+                    Expanded(
+                      flex: AppValueManager.v1,
+                      child: Container(
+                        color: ColorManager.grey,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              IconManager.dot,
+                              color: ColorManager.primary,
+                              size: AppSizeManager.s14,
+                            ),
+                            Text(
+                              listOfProducts[index]['last_sale'].toString(),
+                              style: Theme.of(context).textTheme.titleSmall,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -340,7 +358,7 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(AppPaddingManager.p10),
       child: SizedBox.square(
         dimension: MediaQuery.of(context).size.width,
-        child: Image.asset(ImageAssetManager.categories),
+        child: Image.asset(ImageAssetManager.banner6),
       ),
     );
   }

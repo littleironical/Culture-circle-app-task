@@ -5,6 +5,7 @@ class AppPaddingManager {
   static const double p10 = 10;
   static const double p12 = 12;
   static const double p20 = 20;
+  static const double p30 = 30;
 }
 
 class AppValueManager {
@@ -12,6 +13,8 @@ class AppValueManager {
   static const int v1 = 1;
   static const int v2 = 2;
   static const int v4 = 4;
+  static const int v6 = 6;
+  static const int v10 = 10;
 }
 
 class AppSizeManager {
@@ -44,4 +47,5 @@ class AppSizeManager {
   static const double s260 = 260;
   static const double s280 = 280;
   static const double s300 = 300;
+  static const double s340 = 340;
 }

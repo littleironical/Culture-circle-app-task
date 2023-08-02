@@ -48,7 +48,10 @@ class _AuthViewState extends State<AuthView>
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                title: Image.asset(ImageAssetManager.categories),
+                title: SizedBox(
+                  width: AppSizeManager.s140,
+                  child: Image.asset(ImageAssetManager.brand1),
+                ),
                 pinned: true,
                 floating: true,
                 automaticallyImplyLeading: false,
@@ -102,11 +105,11 @@ class _AuthViewState extends State<AuthView>
               _getFormSpacing(AppSizeManager.s10),
               _getORField(),
               _getFormSpacing(AppSizeManager.s10),
-              _getSignUpButton(ImageAssetManager.categories, StringManager.continueWithGoogle),
+              _getSignUpButton(ImageAssetManager.logo1, StringManager.continueWithGoogle),
               _getFormSpacing(AppSizeManager.s10),
-              _getSignUpButton(ImageAssetManager.categories, StringManager.continueWithFacebook),
+              _getSignUpButton(ImageAssetManager.logo2, StringManager.continueWithFacebook),
               _getFormSpacing(AppSizeManager.s10),
-              _getSignUpButton(ImageAssetManager.categories, StringManager.continueWithTwitter),
+              _getSignUpButton(ImageAssetManager.logo3, StringManager.continueWithTwitter),
               _getFormSpacing(AppSizeManager.s10),
               _getSwitchForm(StringManager.moveToLogin),
               _getFormSpacing(AppSizeManager.s100),
@@ -201,11 +204,17 @@ class _AuthViewState extends State<AuthView>
       child: OutlinedButton(
         onPressed: () {},
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(image),
+            SizedBox(
+              height: AppSizeManager.s40,
+              child: Image.asset(image),
+            ),
+            const SizedBox(width: AppSizeManager.s10),
             Text(
               text,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),
@@ -214,7 +223,7 @@ class _AuthViewState extends State<AuthView>
   }
 
   _getSwitchForm(String text) {
-    return InkWell(
+    return GestureDetector(
       child: Text(
         text,
         style: Theme.of(context).textTheme.displaySmall,
@@ -249,11 +258,11 @@ class _AuthViewState extends State<AuthView>
               _getFormSpacing(AppSizeManager.s10),
               _getORField(),
               _getFormSpacing(AppSizeManager.s10),
-              _getSignUpButton(ImageAssetManager.categories, StringManager.continueWithGoogle),
+              _getSignUpButton(ImageAssetManager.logo1, StringManager.continueWithGoogle),
               _getFormSpacing(AppSizeManager.s10),
-              _getSignUpButton(ImageAssetManager.categories, StringManager.continueWithFacebook),
+              _getSignUpButton(ImageAssetManager.logo2, StringManager.continueWithFacebook),
               _getFormSpacing(AppSizeManager.s10),
-              _getSignUpButton(ImageAssetManager.categories, StringManager.continueWithTwitter),
+              _getSignUpButton(ImageAssetManager.logo3, StringManager.continueWithTwitter),
               _getFormSpacing(AppSizeManager.s10),
               _getSwitchForm(StringManager.moveToSignup),
             ],

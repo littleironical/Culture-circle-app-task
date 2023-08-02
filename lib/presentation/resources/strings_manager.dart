@@ -55,4 +55,29 @@ class StringManager {
   static const String shoe4 = 'Nike Dunk Low Cacao Wow (Women\'s)';
   static const String shoe5 = 'Nike Dunk Low Light Orewood Brwon Sashiko';
   static const String shoe6 = 'Nike Air Force 1 Low \'07 White';
+
+  // PRODUCT SCREEN TEXT
+  static const String size = 'Size';
+  static const String all = 'All';
+  static const String buyPrice = '\$78';
+  static const String buySize = 'Size 6W';
+  static const String buyORBid = 'Buy or Bid';
+  static const String sellPrice = '\$153';
+  static const String sellSize = 'Size 12.5W';
+  static const String sellORAsk = 'Sell or Ask';
+  static const String productSellingFast = 'This Product is Selling Fast';
+  static const String purchases = '505 Purchases in the past 3 days';
+  static const String viewMarketData = 'View Market Data';
+  static const String relatedProducts = 'Related Products';
+
+  // PRODUCT PRICING
+  static const String lastSaleText = 'Last Sale';
+  static const String lastSalePrice = '\$228';
+  static const String lastSaleAnalytics = '\$82 (55%)';
+
+  // EXPANDABLE TEXTS
+  static const String stockXVerified = 'StockX Verified';
+  static const String stockXVerifiedText = 'StockX-Verified is our own designation and means that we inspect every item, every time.';
+  static const String ourPromise = 'Our Promise';
+  static const String ourPromiseTxet = 'We strive to earn and keep your trust. If we make a mistake, we\'ll put it right';
 }

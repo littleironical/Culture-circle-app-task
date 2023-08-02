@@ -232,7 +232,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: AppPaddingManager.p8),
               Text(
                 categories[index]['category_name'].toString(),
-                style: Theme.of(context).textTheme.bodySmall,
+                style: Theme.of(context).textTheme.labelSmall,
               ),
             ],
           ),

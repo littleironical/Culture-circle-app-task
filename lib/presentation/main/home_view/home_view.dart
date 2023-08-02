@@ -28,23 +28,23 @@ class _HomePageState extends State<HomePage> {
   // SAMPLE DATA
   final List<Map<String, String>> _categories = [
     {
-      'image': ImageAssetManager.category1, 
+      'image': ImageAssetManager.category1,
       'category_name': StringManager.categorySneakers,
     },
     {
-      'image': ImageAssetManager.category2, 
+      'image': ImageAssetManager.category2,
       'category_name': StringManager.categoryApparel,
     },
     {
-      'image': ImageAssetManager.category3, 
+      'image': ImageAssetManager.category3,
       'category_name': StringManager.categoryElectronics,
     },
     {
-      'image': ImageAssetManager.category4, 
+      'image': ImageAssetManager.category4,
       'category_name': StringManager.categoryShoes,
     },
     {
-      'image': ImageAssetManager.category5, 
+      'image': ImageAssetManager.category5,
       'category_name': StringManager.categoryTradingCards,
     },
   ];
@@ -114,24 +114,26 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _getCarousel(_carouselImages),
-          _getSpacing(AppSizeManager.s20),
-          _getTextSection(StringManager.shopByCategory),
-          _getAllCategories(_categories),
-          _getTextSection(StringManager.recommendedForYou),
-          _getProductsList(_listOfProducts),
-          _getSpacing(AppSizeManager.s20),
-          _getTextSection(StringManager.popularBrands),
-          _getBrands(_listOfBrands),
-          _getSpacing(AppSizeManager.s20),
-          _getBanner(),
-          _getSpacing(AppSizeManager.s20),
-        ],
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _getCarousel(_carouselImages),
+            _getSpacing(AppSizeManager.s20),
+            _getTextSection(StringManager.shopByCategory),
+            _getAllCategories(_categories),
+            _getTextSection(StringManager.recommendedForYou),
+            _getProductsList(_listOfProducts),
+            _getSpacing(AppSizeManager.s20),
+            _getTextSection(StringManager.popularBrands),
+            _getBrands(_listOfBrands),
+            _getSpacing(AppSizeManager.s20),
+            _getBanner(),
+            _getSpacing(AppSizeManager.s20),
+          ],
+        ),
       ),
     );
   }
@@ -158,11 +160,11 @@ class _HomePageState extends State<HomePage> {
       fit: StackFit.loose,
       children: [
         CarouselSlider.builder(
-          itemCount: carouselImages.length, 
+          itemCount: carouselImages.length,
           itemBuilder: (context, index, realIndex) {
             final image = carouselImages[index];
             return _buildImage(image, index);
-          }, 
+          },
           options: CarouselOptions(
             height: AppSizeManager.s340,
             viewportFraction: AppSizeManager.s1,
@@ -186,12 +188,16 @@ class _HomePageState extends State<HomePage> {
                 height: AppSizeManager.s10,
                 width: AppSizeManager.s10,
                 decoration: BoxDecoration(
-                  color: (_currentIndex == index) ? ColorManager.darkGrey : ColorManager.white,
-                  borderRadius: const BorderRadius.all(Radius.circular(AppSizeManager.s2)),
+                  color: (_currentIndex == index)
+                      ? ColorManager.darkGrey
+                      : ColorManager.white,
+                  borderRadius: const BorderRadius.all(
+                      Radius.circular(AppSizeManager.s2)),
                 ),
               ),
             ),
-            separatorBuilder: (context, index) => const SizedBox(width: AppSizeManager.s10),
+            separatorBuilder: (context, index) =>
+                const SizedBox(width: AppSizeManager.s10),
           ),
         ),
       ],
@@ -247,7 +253,10 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.horizontal,
           itemCount: listOfProducts.length,
           itemBuilder: (context, index) => GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProductView(listOfProducts[index]))),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => ProductView(listOfProducts[index]))),
             child: Container(
               width: AppSizeManager.s140,
               decoration: BoxDecoration(
